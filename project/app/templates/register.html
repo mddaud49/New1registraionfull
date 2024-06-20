@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body> 
+    <div style="margin-top: 100px;">
+        <form action="{% url 'registerdata' %}" method="post">
+            {% csrf_token %} 
+            Name : <input type="text" name="name"/>
+            <br/>
+            <br/>
+            Email : <input type="text" name="email"/>
+            <br/>
+            <br/>
+            Contact : <input type="tel" name="contact"/>
+            <br/>
+            <br/>
+            Password : <input type="password" name="pass"/>
+            <br/>
+            <br/>
+            Confirm Password : <input type="password" name="cpassword"/>
+            <br/>
+            <br/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </div> 
+</body>
+</html>
+
+{% endblock %}
